@@ -1,0 +1,14 @@
+[
+  {"q": "дедупликация памяти contextd", "needle": "jaccard"},
+  {"q": "какое сопло для PETG", "needle": "сопл"},
+  {"q": "как поднять обход через VPS", "needle": "hysteria"},
+  {"q": "что за карта P104-100", "needle": "p104"},
+  {"q": "пароль от микротика где", "needle": "mikrotik"},
+  {"q": "блок питания сервера мощность", "needle": "pf450"},
+  {"q": "камера принтера стрим", "needle": "ustreamer"},
+  {"q": "SolidCraft управление канал", "needle": "solidcraft"},
+  {"q": "расписание индексатора скилов", "needle": "skills_index"},
+  {"q": "насос по памяти bge-m3", "needle": "bge"},
+  {"q": "Nextcloud WebDAV порт", "needle": "8085"},
+  {"q": "сколько видеопамяти на RX 550", "needle": "4 гб"}
+]

@@ -1,0 +1,30 @@
+# база и бэкапы
+*.db
+*.db-wal
+*.db-shm
+backups/
+
+# окружение и токены — в репозиторий не попадают никогда
+.env
+*.env
+!.env.example
+!*.env.example
+.hermes_*.env
+*_token*
+secrets/
+
+# состояние индексаторов
+*.state.json
+*.err.log
+
+# питон
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# редакторы
+.vscode/
+.idea/
+.DS_Store
