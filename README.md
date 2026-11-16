@@ -42,7 +42,7 @@ contextd держит их как короткие атомарные запис
 
 | Метрика | Значение | Как мерили |
 |---|---|---|
-| Фактов в базе | 9 212 | `select count(*) from facts` |
+| Фактов в базе | 9 212 ± 100 | `select count(*) from facts` (индексаторы дописывают чанки) |
 | Тем | 120 | `count(distinct topic)` |
 | Размер базы | 177 МБ | `context.db` + WAL |
 | Средняя длина записи | 615 символов | `avg(length(text))` |
@@ -105,9 +105,13 @@ curl -s -G localhost:8090/recall -H "X-Context-Token: $CONTEXTD_TOKEN" \
 Ответ `/recall`:
 
 ```json
-{"query":"какое сопло для петг","context":"- [print/petg] PETG печатать: сопло 240, стол 80",
- "items":[{"id":1,"topic":"print/petg","kind":"settings","text":"…","priority":65,"score":0.032}],
- "tokens_est":18,"budget":800,"dropped":{"dup":0,"topic":0,"cands":1},"vectors":true}
+{"query": "какое сопло для петг",
+ "context": "- [print/petg/settings] Печатать PETG: сопло 240, стол 80, вентилятор 50%\n- [print/orca/settings] …",
+ "items": [{"id": 3, "topic": "print/petg", "kind": "settings",
+            "text": "Печатать PETG: сопло 240, стол 80, вентилятор 50%",
+            "pinned": true, "priority": 100, "score": 0.025}],
+ "tokens_est": 108, "budget": 400,
+ "dropped": {"dup": 0, "topic": 0, "cands": 8}, "vectors": true}
 ```
 
 ## Установка на сервер
